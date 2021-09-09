@@ -13,6 +13,12 @@ function renderRamen(ramenObject){
 
         ramenImg.src = ramenObject.image;//assigning ramenImg's image source to that of the passed in json object that is currently being iterated through
 
+         // grab the div with id='ramen-menu' and assign it to variable menu
+         const menu = document.getElementById('ramen_menu');
+
+         // appending the ramenImg image to the div
+         menu.appendChild(ramenImg);
+
         // add 'click' evenListener to the ramenImg element
         ramenImg.addEventListener('click', function(e){
             console.log(ramenObject);
@@ -33,12 +39,6 @@ function renderRamen(ramenObject){
             comment.textContent = ramenObject.comment;
 
         });
-        // grab the div with id='ramen-menu' and assign it to variable menu
-        const menu = document.getElementById('ramen_menu');
-
-        // appending the ramenImg image to the div
-        menu.appendChild(ramenImg);
-
 }
 
 
@@ -56,7 +56,7 @@ function submitHandler(e){
         name: e.target["name"].value,
         restaurant: e.target["restaurant"].value,
         image: e.target["image"].value,
-        rating: +e.target["rating"].value,//the plus before the e.target[].value is simply to convert the number string(example:"1") to a integer
+        rating: e.target["rating"].value,//the plus before the e.target[].value is simply to convert the number string(example:"1") to a integer
         comment: e.target["new-comment"].value
     }
 
